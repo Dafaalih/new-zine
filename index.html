@@ -1,0 +1,1239 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>new-zine</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;700&family=Special+Elite&family=Permanent+Marker&family=Caveat:wght@400;600;700&family=Archivo+Black&family=Rubik+Mono+One&family=DM+Serif+Display&family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Courier+Prime:wght@400;700&family=Silkscreen:wght@400;700&family=Press+Start+2P&family=Instrument+Serif:ital@0;1&family=Pinyon+Script&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+  <div id="app">
+
+    <!-- ============================================================
+       SCREEN 1 — LANDING
+       ============================================================ -->
+    <section id="screen-landing" class="screen active">
+      <!-- Top Bar: Header tag + Mode Switcher + Theme Toggle Dots -->
+      <header class="landing-top-bar">
+        <span class="zss-tag">new-zine</span>
+        <div class="landing-top-right">
+          <button type="button" class="landing-projects-btn" id="btn-landing-projects" title="all projects"
+            aria-label="all projects">
+            <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.6"
+              stroke-linejoin="round">
+              <path d="M3 7 a2 2 0 0 1 2 -2 H8 L10 3 H17 a2 2 0 0 1 2 2 V17 a2 2 0 0 1 -2 2 H5 a2 2 0 0 1 -2 -2 Z" />
+            </svg>
+            <span class="pm-count" style="display:none">0</span>
+          </button>
+          <div class="landing-dots" role="group" aria-label="theme toggle">
+            <button type="button" class="dot-btn dot-ring" id="landing-dot-dark" aria-label="dark mode"
+              title="dark mode"></button>
+            <button type="button" class="dot-btn dot-solid" id="landing-dot-light" aria-label="light mode"
+              title="light mode"></button>
+          </div>
+        </div>
+      </header>
+
+      <div class="landing-content">
+        <!-- ARMORED RAINBOW ARC HERO SHOWCASE (FRAMING THE CENTER CONTENT) -->
+        <section class="zine-arc-hero" id="zine-arc-hero" aria-label="zine showcase">
+          <div class="zss-stage-viewport" id="zss-stage-viewport" title="Drag or scroll to rotate zines">
+            <div class="zss-cards-stage" id="zss-cards-stage">
+              <div class="zss-world" id="zss-world">
+                <!-- Arched zine cards injected by zine-ring.js -->
+              </div>
+            </div>
+
+            <!-- Circular Nav Arrows on sides -->
+            <button type="button" class="zss-nav-btn zss-nav-prev" id="zss-nav-prev" aria-label="previous zines"
+              title="previous">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+                stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="15 18 9 12 15 6"></polyline>
+              </svg>
+            </button>
+            <button type="button" class="zss-nav-btn zss-nav-next" id="zss-nav-next" aria-label="next zines"
+              title="next">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+                stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="9 18 15 12 9 6"></polyline>
+              </svg>
+            </button>
+
+            <!-- Center Hero Content (Framed directly under the Arch) -->
+            <div class="zss-center-hero">
+              <h1 class="zss-hero-title">make your own zines</h1>
+              <p class="zss-hero-subtitle">fold, cut, and print your ideas in your browser · no sign-up</p>
+
+              <div class="landing-actions">
+                <button id="btn-start-zine" class="pill pill-solid">start zine<span class="cta-arrow"
+                    aria-hidden="true">→</span></button>
+                <button id="btn-open-photo-editor" class="pill pill-outline">edit photo</button>
+              </div>
+
+              <div class="landing-meta">
+                <p id="landing-note">*your work stays in your browser</p>
+                <span class="zss-counter" id="zss-counter">01 — 10 · things i can't change · design by community
+                  artist</span>
+                <button id="btn-resume" class="hidden">→ resume your last zine</button>
+              </div>
+            </div>
+
+            <!-- Bottom ambient transparent fade gradient -->
+            <div class="zss-bottom-gradient" aria-hidden="true"></div>
+          </div>
+        </section>
+
+        <!-- EDITORIAL ACCORDION SECTION -->
+        <div class="landing-accordion">
+          <div class="acc-item">
+            <button class="acc-head" aria-expanded="false" aria-controls="acc-panel-1" id="acc-btn-1">
+              <span class="acc-title">
+                <span class="split-text split-left" data-original="what's" data-glitch="XER0X#">what's</span>
+                <span class="split-media">
+                  <img src="assets/landing/thumb-whats-zine.jpg" alt="what's a zine preview" loading="lazy">
+                </span>
+                <span class="split-text split-right" data-original="a zine?" data-glitch="CU1T!?">a zine?</span>
+              </span>
+            </button>
+            <div class="acc-panel" id="acc-panel-1" role="region" aria-labelledby="acc-btn-1" hidden>
+              <div class="acc-inner">
+                <p>a small, self-made publication.<br>printed at home or at the copy shop.<br>made by one person, or a
+                  few friends.<br>no editor. no rules. no permission.<br>ugly is allowed.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="acc-item">
+            <button class="acc-head" aria-expanded="false" aria-controls="acc-panel-2" id="acc-btn-2">
+              <span class="acc-title">
+                <span class="split-text split-left" data-original="how to" data-glitch="F0LD·UP">how to</span>
+                <span class="split-media">
+                  <img src="assets/landing/thumb-how-to.jpg" alt="how to make a zine preview" loading="lazy">
+                </span>
+                <span class="split-text split-right" data-original="make zine?" data-glitch="1·CUT!8">make zine?</span>
+              </span>
+            </button>
+            <div class="acc-panel" id="acc-panel-2" role="region" aria-labelledby="acc-btn-2" hidden>
+              <div class="acc-inner">
+                <p>fold one sheet of paper.<br>make eight little pages.<br>print it at home.<br>cut once. fold it
+                  up.<br>that's the whole trick.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="acc-item">
+            <button class="acc-head" aria-expanded="false" aria-controls="acc-panel-3" id="acc-btn-3">
+              <span class="acc-title">
+                <span class="split-text split-left" data-original="where zines" data-glitch="1977·PUNK">where
+                  zines</span>
+                <span class="split-media">
+                  <img src="assets/landing/thumb-origins.jpg" alt="where zines come from preview" loading="lazy">
+                </span>
+                <span class="split-text split-right" data-original="come from?" data-glitch="RI0T·GRRL">come
+                  from?</span>
+              </span>
+            </button>
+            <div class="acc-panel" id="acc-panel-3" role="region" aria-labelledby="acc-btn-3" hidden>
+              <div class="acc-inner">
+                <p>from fan clubs trading science fiction stories in the 1930s.<br>from punk kids with a photocopier in
+                  the 70s.<br>from riot grrrls in the 90s.<br>from you, right now.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="acc-item">
+            <button class="acc-head" aria-expanded="false" aria-controls="acc-panel-4" id="acc-btn-4">
+              <span class="acc-title">
+                <span class="split-text split-left" data-original="rules of" data-glitch="N0·RULES">rules of</span>
+                <span class="split-media">
+                  <img src="assets/landing/thumb-manifesto.jpg" alt="rules of zine making preview" loading="lazy">
+                </span>
+                <span class="split-text split-right" data-original="zine making" data-glitch="UGLY·OK!">zine
+                  making</span>
+              </span>
+            </button>
+            <div class="acc-panel" id="acc-panel-4" role="region" aria-labelledby="acc-btn-4" hidden>
+              <div class="acc-inner">
+                <p>rule #1: there are no rules.<br>rule #2: perfect is boring. messy is human.<br>rule #3: copy, paste,
+                  scan, remix.<br>distribute to friends or leave them in coffee shops.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- ============================================================
+             NEW ZINE — 3D ROTATING DESIGN RING SHOWCASE
+             ============================================================ -->
+        <section class="zine-3d-ring-section" id="zine-3d-ring-section" aria-label="3D rotating zine designs showcase">
+          <div class="ring-section-header">
+            <span class="ring-meta-tag">[03 // archive]</span>
+            <span class="ring-meta-sub">01 — 10 · featured zine designs · drag or swipe to spin</span>
+            <span class="ring-meta-badge">3d carousel</span>
+          </div>
+
+          <div class="ring-stage-container" id="ring-stage-container">
+            <div class="ring-flank-text flank-left" aria-hidden="true">new</div>
+
+            <div class="ring-viewport" id="ring-viewport">
+              <div class="ring-cylinder" id="ring-cylinder">
+                <!-- 10 3D zine cards populated dynamically by home.js -->
+              </div>
+            </div>
+
+            <div class="ring-flank-text flank-right" aria-hidden="true">zine</div>
+          </div>
+
+          <div class="ring-instructions">
+            <span class="ring-drag-indicator">← drag or swipe to rotate →</span>
+          </div>
+        </section>
+
+        <!-- ============================================================
+             NEW ZINE — ABOUT & CREATOR SECTION (ANIMATED)
+             ============================================================ -->
+        <section class="zine-about-section" id="zine-about-section" aria-label="About new-zine and creator">
+          <div class="about-header">
+            <span class="about-meta-tag">[04 // about]</span>
+            <span class="about-meta-title">indie publishing studio · est. 2026</span>
+            <span class="about-meta-badge">local-first</span>
+          </div>
+
+          <div class="about-hero-grid">
+            <!-- Manifesto Card -->
+            <div class="about-manifesto-card">
+              <div class="about-kicker">the philosophy</div>
+              <h3 class="about-headline">
+                built for the <span class="about-hl-em">misfits</span>, thinkers, poets, and punk artists who still
+                believe in physical paper in a digital void.
+              </h3>
+              <p class="about-body">
+                new-zine transforms your browser into an indie print shop. fold a single a4 sheet into an 8-page
+                booklet. add halftones, photocopy grain, risograph textures, and print directly at home or distribute at
+                local coffee shops. no cloud lock-in, no accounts, just pure creative freedom.
+              </p>
+
+              <div class="about-tags-row">
+                <span class="about-pill">#diy</span>
+                <span class="about-pill">#photocopy</span>
+                <span class="about-pill">#local-first</span>
+                <span class="about-pill">#no-rules</span>
+              </div>
+            </div>
+
+            <!-- Creator Card (@dafaalih) with Animated Stamp -->
+            <div class="about-creator-card">
+              <div class="creator-stamp-wrap">
+                <!-- Rotating Stamp SVG Animation -->
+                <div class="creator-stamp-rotate" aria-hidden="true">
+                  <svg viewBox="0 0 100 100" class="creator-stamp-svg">
+                    <path id="stamp-circle" d="M 50, 50 m -37, 0 a 37,37 0 1,1 74,0 a 37,37 0 1,1 -74,0" fill="none" />
+                    <text class="creator-stamp-text">
+                      <textPath href="#stamp-circle" startOffset="0%">
+                        ★ CRAFTED BY @DAFAALIH ★ NEW-ZINE STUDIO ★
+                      </textPath>
+                    </text>
+                  </svg>
+                  <div class="stamp-center-icon">⚡</div>
+                </div>
+              </div>
+
+              <div class="creator-info">
+                <span class="creator-label">creator & developer</span>
+                <h4 class="creator-name">Daffa Ali</h4>
+                <p class="creator-bio">
+                  designed & engineered with love for indie web craft and zine subculture.
+                </p>
+
+                <a href="https://instagram.com/dafaalih" target="_blank" rel="noopener noreferrer"
+                  class="creator-ig-btn" id="btn-creator-ig">
+                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                    stroke-linecap="round" stroke-linejoin="round">
+                    <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                    <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                    <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+                  </svg>
+                  <span>@dafaalih on ig</span>
+                  <span class="ig-arrow">↗</span>
+                </a>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- ============================================================
+             SECTION DI-NONAKTIFKAN SEMENTARA (EDITORIAL MANIFESTO POSTER)
+             Untuk mengaktifkan kembali nanti, cukup hapus: style="display: none;"
+             ============================================================ -->
+        <section class="landing-manifesto-poster" style="display: none;" aria-label="zine manifesto poster">
+          <div class="poster-canvas">
+            <!-- Background Watermark -->
+            <div class="poster-watermark" aria-hidden="true">ZINE</div>
+
+            <!-- Top Metadata Bar -->
+            <div class="poster-top-bar">
+              <div class="poster-meta-left">
+                <span class="poster-asterisk">✻</span>
+                <span class="poster-tag">manifesto // 01</span>
+              </div>
+              <div class="poster-meta-right">
+                we give you all the tools to fold, cut, and print your ideas.<br>no editor · no rules · no permission.
+              </div>
+            </div>
+
+            <!-- Typographic Layout Stage -->
+            <div class="poster-stage">
+              <div class="poster-line poster-line-1">
+                <span class="poster-word">crafting</span>
+              </div>
+              <div class="poster-line poster-line-2">
+                <span class="poster-word">innovative</span>
+              </div>
+
+              <div class="poster-mid-grid">
+                <div class="poster-col-words">
+                  <span class="poster-word">zines</span>
+                  <span class="poster-word">that</span>
+                </div>
+
+                <!-- Center Electric Blue Card -->
+                <div class="poster-electric-card">
+                  <div class="electric-card-header">
+                    <span class="electric-badge">
+                      <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor">
+                        <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon>
+                      </svg>
+                      new-zine®
+                    </span>
+                  </div>
+                  <p class="electric-card-body">
+                    We have all the features you need to look after your print and indie presence. From mini 8-page
+                    zines, halftone filters, stamps, to instant printable A4 PDF.
+                  </p>
+                  <button type="button" class="electric-card-link" id="poster-btn-details">
+                    details <span class="arrow-diag">↗</span>
+                  </button>
+
+                  <!-- Attached Floating Edge Capsule Pill -->
+                  <button type="button" class="electric-floating-pill" id="poster-floating-pill">
+                    <span class="pill-spark-icon">⚡</span>
+                    <span class="pill-spark-text">start creating</span>
+                  </button>
+                </div>
+
+                <div class="poster-col-words poster-col-right">
+                  <span class="poster-word">captivate</span>
+                </div>
+              </div>
+
+              <div class="poster-line poster-line-bottom">
+                <span class="poster-word">your</span>
+                <span class="poster-word word-offset">audience</span>
+              </div>
+            </div>
+
+            <!-- Bottom Metadata Bar -->
+            <div class="poster-bottom-bar">
+              <div class="poster-meta-foot-left">
+                <span class="poster-est">est. 2026 // new-zine®</span>
+                <span class="poster-foot-sub">independent publishing tool</span>
+              </div>
+              <div class="poster-meta-foot-right">
+                <span class="poster-edition">[ 01 / 01 ]</span>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- ============================================================
+             SECTION DI-NONAKTIFKAN SEMENTARA (3D PHOTO SPHERE)
+             Untuk mengaktifkan kembali nanti, cukup hapus: style="display: none;"
+             ============================================================ -->
+        <section class="photo-sphere-section" id="photo-sphere-section" style="display: none;"
+          aria-label="3d photo sphere">
+          <!-- 3D Interactive Viewport -->
+          <div class="photo-sphere-viewport" id="photo-sphere-viewport">
+            <!-- The 3D World Stage where photos are projected in 3D -->
+            <div class="photo-sphere-stage" id="photo-sphere-stage">
+              <!-- Injected by initPhotoSphere3D() in app.js -->
+            </div>
+          </div>
+        </section>
+
+        <!-- MODERN EDITORIAL LANDING FOOTER (ANIMATED & CONDENSED BRUTALIST) -->
+        <footer class="landing-footer" id="landing-footer">
+          <!-- Marquee Tape Ticker with neon acid highlights -->
+          <div class="landing-footer-ticker" aria-hidden="true">
+            <div class="footer-ticker-track">
+              <span>NO CLOUD LOCK-IN <span class="ticker-accent">✻</span> 100% IN-BROWSER <span
+                  class="ticker-accent">⚡</span> ZERO TRACKING <span class="ticker-accent">✻</span> A4 INSTANT PDF <span
+                  class="ticker-accent">★</span> FOLD & CUT <span class="ticker-accent">✂</span> 8 PAGES 1 SHEET <span
+                  class="ticker-accent">✻</span> INDIE PUBLISHING <span class="ticker-accent">⚡</span> UGLY IS ALLOWED
+                <span class="ticker-accent">★</span> CRAFTED BY @DAFAALIH <span class="ticker-accent">✻</span> </span>
+              <span>NO CLOUD LOCK-IN <span class="ticker-accent">✻</span> 100% IN-BROWSER <span
+                  class="ticker-accent">⚡</span> ZERO TRACKING <span class="ticker-accent">✻</span> A4 INSTANT PDF <span
+                  class="ticker-accent">★</span> FOLD & CUT <span class="ticker-accent">✂</span> 8 PAGES 1 SHEET <span
+                  class="ticker-accent">✻</span> INDIE PUBLISHING <span class="ticker-accent">⚡</span> UGLY IS ALLOWED
+                <span class="ticker-accent">★</span> CRAFTED BY @DAFAALIH <span class="ticker-accent">✻</span> </span>
+            </div>
+          </div>
+
+          <!-- Main Footer Content -->
+          <div class="footer-main-wrap">
+            <div class="footer-grid">
+              <!-- Col 1: Brand & Status -->
+              <div class="footer-col footer-col-brand">
+                <div class="footer-brand-header">
+                  <span class="footer-brand-title">new-zine<span class="brand-reg">®</span></span>
+                  <span class="footer-status-pill">
+                    <span class="status-dot-pulse"></span>
+                    <span>LOCAL-FIRST · v2.4</span>
+                  </span>
+                </div>
+                <p class="footer-brand-desc">
+                  An independent in-browser publishing studio. Fold, cut, and print your 8-page mini zines without
+                  sign-up, tracking, or software installation.
+                </p>
+                <div class="footer-system-badges">
+                  <span class="system-badge">
+                    <svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="2">
+                      <rect x="3" y="11" width="18" height="11" rx="2" ry="2" />
+                      <path d="M7 11V7a5 5 0 0 1 10 0v4" />
+                    </svg>
+                    Zero Cloud Storage
+                  </span>
+                  <a href="https://instagram.com/dafaalih" target="_blank" rel="noopener noreferrer"
+                    class="system-badge creator-badge">
+                    <span class="badge-spark">★</span>
+                    @dafaalih on ig
+                  </a>
+                </div>
+              </div>
+
+              <!-- Col 2: Capabilities / Formats -->
+              <div class="footer-col footer-col-features">
+                <h4 class="footer-col-title">[01 // CAPABILITIES]</h4>
+                <ul class="footer-links-list">
+                  <li><span class="footer-link-text"><span class="footer-link-marker">→</span>8-Page Mini Zine (A4 / US
+                      Letter)</span></li>
+                  <li><span class="footer-link-text"><span class="footer-link-marker">→</span>Freeform Canvas & Smart
+                      Snapping</span></li>
+                  <li><span class="footer-link-text"><span class="footer-link-marker">→</span>Photo-to-Pixel & Xerox
+                      Stencils</span></li>
+                  <li><span class="footer-link-text"><span class="footer-link-marker">→</span>Interactive 3D Flipbook
+                      Simulator</span></li>
+                  <li><span class="footer-link-text"><span class="footer-link-marker">→</span>Fold & Cut Print-Ready
+                      Vector PDF</span></li>
+                </ul>
+              </div>
+
+              <!-- Col 3: Shortcuts & Cheatsheet -->
+              <div class="footer-col footer-col-shortcuts">
+                <h4 class="footer-col-title">[02 // SHORTCUTS]</h4>
+                <div class="footer-shortcuts-list">
+                  <div class="shortcut-item">
+                    <span class="shortcut-desc">Group elements</span>
+                    <span class="shortcut-keys"><kbd>Ctrl</kbd><kbd>G</kbd></span>
+                  </div>
+                  <div class="shortcut-item">
+                    <span class="shortcut-desc">Micro-nudge</span>
+                    <span class="shortcut-keys"><kbd>←</kbd><kbd>→</kbd><kbd>↑</kbd><kbd>↓</kbd></span>
+                  </div>
+                  <div class="shortcut-item">
+                    <span class="shortcut-desc">Multi-select layer</span>
+                    <span class="shortcut-keys"><kbd>Ctrl</kbd>+<kbd>Click</kbd></span>
+                  </div>
+                  <div class="shortcut-item">
+                    <span class="shortcut-desc">Duplicate</span>
+                    <span class="shortcut-keys"><kbd>Ctrl</kbd><kbd>D</kbd></span>
+                  </div>
+                  <div class="shortcut-item">
+                    <span class="shortcut-desc">Flip 3D book</span>
+                    <span class="shortcut-keys"><kbd>Space</kbd></span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Col 4: Quick Launch Card -->
+              <div class="footer-col footer-col-cta">
+                <div class="footer-cta-card">
+                  <span class="cta-card-tag">[READY TO FOLD?]</span>
+                  <h4 class="cta-card-title">Make your next zine in under 5 minutes.</h4>
+                  <div class="footer-cta-buttons">
+                    <button type="button" class="footer-btn primary" id="footer-btn-start">
+                      <span>start zine</span>
+                      <svg class="footer-btn-arrow" viewBox="0 0 24 24" width="14" height="14" fill="none"
+                        stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="5" y1="12" x2="19" y2="12"></line>
+                        <polyline points="12 5 19 12 12 19"></polyline>
+                      </svg>
+                    </button>
+                    <button type="button" class="footer-btn outline" id="footer-btn-photo">
+                      <span>edit photo</span>
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Monumental Bold Brand Display Banner -->
+            <div class="footer-monumental-wrap" aria-hidden="true">
+              <span class="footer-monumental-text">new-zine®</span>
+            </div>
+
+            <!-- Bottom Copyright & Back to Top Bar -->
+            <div class="footer-bottom-bar">
+              <div class="footer-bottom-left">
+                <span>EST. 2026 // NEW-ZINE</span>
+                <span class="footer-bottom-sep">/</span>
+                <span>NO EDITOR · NO RULES · NO PERMISSION</span>
+                <span class="footer-bottom-sep">/</span>
+                <a href="https://instagram.com/dafaalih" target="_blank" rel="noopener noreferrer"
+                  class="footer-creator-link">@dafaalih on ig</a>
+              </div>
+              <div class="footer-bottom-right">
+                <button type="button" class="footer-back-to-top" id="footer-back-to-top" title="back to top">
+                  <span>back to top</span>
+                  <svg class="footer-top-arrow" viewBox="0 0 24 24" width="13" height="13" fill="none"
+                    stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="12" y1="19" x2="12" y2="5"></line>
+                    <polyline points="5 12 12 5 19 12"></polyline>
+                  </svg>
+                </button>
+              </div>
+            </div>
+          </div>
+        </footer>
+
+        <!-- PHOTO ZOOM OVERLAY (MATCHING VIDEO FRAME 160) -->
+        <div class="photo-zoom-overlay" id="photo-zoom-overlay" aria-hidden="true">
+          <div class="photo-zoom-backdrop" id="photo-zoom-backdrop"></div>
+          <div class="photo-zoom-wrap" id="photo-zoom-wrap">
+            <button type="button" class="photo-zoom-close" id="photo-zoom-close" aria-label="close preview">✕</button>
+            <img src="" alt="photo preview" class="photo-zoom-img" id="photo-zoom-img">
+            <p class="photo-zoom-caption" id="photo-zoom-caption">self portrait on film</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+       SCREEN — PHOTO TO PIXEL ART (PHOTO EDITOR)
+       ============================================================ -->
+    <section class="screen screen-photo-editor" id="screen-photo-editor">
+      <!-- Top Bar -->
+      <header class="photo-editor-top">
+        <button class="round round-out" id="btn-photo-back" aria-label="back" title="back to home">
+          <svg class="icon" viewBox="0 0 24 24">
+            <path d="M15 5 L8 12 L15 19" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+              stroke-linejoin="round" />
+          </svg>
+        </button>
+        <input type="file" id="photo-file-input" accept="image/*" class="hidden">
+
+        <!-- Mode Switcher Pill (Photo Stencil vs Cross Stitch Studio) -->
+        <div class="photo-editor-mode-pill" role="group" aria-label="editor mode">
+          <button type="button" class="mode-pill-btn active" id="btn-mode-cutout" title="Photo stencil & cutout editor">
+            <svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2">
+              <rect x="3" y="3" width="7" height="7" />
+              <rect x="14" y="3" width="7" height="7" />
+              <rect x="3" y="14" width="7" height="7" />
+              <rect x="14" y="14" width="7" height="7" />
+            </svg>
+            <span>photo stencil</span>
+          </button>
+          <button type="button" class="mode-pill-btn" id="btn-mode-stitch" title="Cross stitch studio & ornaments">
+            <svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2.2"
+              stroke-linecap="round">
+              <line x1="4" y1="4" x2="20" y2="20" />
+              <line x1="20" y1="4" x2="4" y2="20" />
+            </svg>
+            <span>cross stitch studio</span>
+          </button>
+        </div>
+
+        <div class="photo-editor-top-actions">
+          <button type="button" class="photo-top-btn" id="btn-photo-export" title="download as image">
+            <svg class="icon" viewBox="0 0 24 24" width="15" height="15">
+              <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3" fill="none" stroke="currentColor"
+                stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+            <span>save</span>
+          </button>
+          <button type="button" class="photo-top-btn primary" id="btn-photo-add-zine"
+            title="insert directly into zine canvas">
+            <svg class="icon" viewBox="0 0 24 24" width="15" height="15">
+              <path d="M12 5v14M5 12h14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                stroke-linejoin="round" />
+            </svg>
+            <span>add to zine</span>
+          </button>
+        </div>
+      </header>
+
+      <!-- Main Workspace (Photo Stencil Cutout) -->
+      <div class="photo-editor-workspace" id="workspace-cutout">
+        <!-- 3D Card Stage with Tilt Effect -->
+        <div class="photo-card-stage-container">
+          <div class="photo-card-stage" id="photo-card-stage">
+            <div class="photo-interactive-card" id="photo-card">
+              <!-- Top Section: Uploaded Photo with White Pixel Stencil (Matches User Example) -->
+              <div class="photo-card-half photo-card-photo" id="photo-card-photo"
+                title="Klik foto untuk ganti / upload">
+                <canvas id="canvas-original-stencil"></canvas>
+                <div class="photo-click-upload-badge">
+                  <svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M17 8l-5-5-5 5M12 3v12" />
+                  </svg>
+                  <span>upload foto</span>
+                </div>
+              </div>
+              <!-- Center Crease / Paper Fold Line -->
+              <div class="photo-card-fold-line"></div>
+              <!-- Bottom Section: Textured Paper / Lace with Pixel Mask Cutout -->
+              <div class="photo-card-half photo-card-art" id="photo-card-art">
+                <canvas id="canvas-pixel-art"></canvas>
+                <!-- Retro Digital Timestamp (29.10 10:29) -->
+                <div class="photo-retro-timestamp" id="photo-timestamp-tag">29.10 · 10:29</div>
+                <!-- Word Stamp (wish / keuc / etc) -->
+                <div class="photo-retro-stamp" id="photo-stamp-tag">wish</div>
+                <div class="photo-watermark-tag" id="photo-watermark-tag">✱new-zine</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 2-Column Bottom Controls Row: Left = Format & Split, Right = Style & Adjust -->
+        <div class="photo-editor-controls-row">
+          <!-- Left Column: Format, View Mode, Split Direction -->
+          <div class="photo-controls-left">
+            <!-- Format / Aspect Ratio Switcher -->
+            <div class="pcl-section">
+              <span class="pcl-title">format (aspect ratio)</span>
+              <div class="photo-ratio-switcher" id="photo-ratio-switcher" role="group" aria-label="format aspect ratio">
+                <button type="button" class="prs-btn active" data-ratio="4:5" title="Portrait (4:5)">4:5</button>
+                <button type="button" class="prs-btn" data-ratio="1:1" title="Square (1:1)">1:1</button>
+                <button type="button" class="prs-btn" data-ratio="9:16" title="Story (9:16)">9:16</button>
+                <button type="button" class="prs-btn" data-ratio="16:9" title="Wide (16:9)">16:9</button>
+                <button type="button" class="prs-btn" data-ratio="4:3" title="Classic Photo (4:3)">4:3</button>
+              </div>
+            </div>
+
+            <!-- View Mode Switcher -->
+            <div class="pcl-section">
+              <span class="pcl-title">view mode</span>
+              <div class="photo-view-switcher">
+                <button type="button" class="pvs-btn active" data-view="split">split card</button>
+                <button type="button" class="pvs-btn" data-view="art" id="btn-view-art">pixel art only</button>
+                <button type="button" class="pvs-btn" data-view="photo">photo only</button>
+              </div>
+            </div>
+
+            <!-- Split Direction Switcher -->
+            <div class="pcl-section" id="photo-split-section">
+              <span class="pcl-title">split orientation</span>
+              <div class="photo-split-dir-switcher" id="photo-split-dir-switcher" role="group"
+                aria-label="split direction">
+                <button type="button" class="psd-btn active" data-dir="vertical" title="Split Atas-Bawah (Vertical)">
+                  <svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="2">
+                    <rect x="4" y="3" width="16" height="18" rx="2" />
+                    <line x1="4" y1="12" x2="20" y2="12" />
+                  </svg>
+                  <span>atas-bawah</span>
+                </button>
+                <button type="button" class="psd-btn" data-dir="horizontal" title="Split Kanan-Kiri (Horizontal)">
+                  <svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="2">
+                    <rect x="3" y="4" width="18" height="16" rx="2" />
+                    <line x1="12" y1="4" x2="12" y2="20" />
+                  </svg>
+                  <span>kanan-kiri</span>
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Right Column: Style & Adjust Drawer -->
+          <div class="photo-controls-right">
+            <!-- Controls Drawer (Matching Video Tabs: Note, Adjust, Style) -->
+            <div class="photo-editor-drawer">
+              <!-- Tab Navigation (Style & Adjust) -->
+              <div class="photo-drawer-tabs">
+                <button type="button" class="pdt-tab active" data-tab="style">
+                  <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.8">
+                    <circle cx="12" cy="12" r="10" />
+                    <path d="M12 2a4.5 4.5 0 0 0 0 9 4.5 4.5 0 0 1 0 9M12 12a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5z" />
+                  </svg>
+                  <span>style</span>
+                </button>
+                <button type="button" class="pdt-tab" data-tab="adjust">
+                  <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.8">
+                    <rect x="3" y="3" width="18" height="18" rx="2" />
+                    <circle cx="8.5" cy="8.5" r="1.5" />
+                    <path d="M21 15l-5-5L5 21" />
+                  </svg>
+                  <span>adjust</span>
+                </button>
+              </div>
+
+              <!-- Tab Content 1: STYLE (Frames & Papers) -->
+              <div class="photo-tab-panel active" id="tab-panel-style">
+                <div class="pdt-section">
+                  <div class="pdt-sec-title">
+                    <span class="pdt-sec-tag">FRAME</span>
+                    <span class="pdt-sec-val" id="text-current-frame">Rose Bouquet (Mawar)</span>
+                  </div>
+                  <div class="pdt-frame-grid" id="pdt-frame-grid">
+                    <!-- Preset frame cards -->
+                  </div>
+                </div>
+                <div class="pdt-section">
+                  <div class="pdt-sec-title">
+                    <span class="pdt-sec-tag">PAPER</span>
+                    <span class="pdt-sec-val" id="text-current-paper">White Lace (Renda)</span>
+                  </div>
+                  <div class="pdt-paper-grid" id="pdt-paper-grid">
+                    <!-- Preset paper cards -->
+                  </div>
+                </div>
+                <div class="pdt-section">
+                  <div class="pdt-sec-title">
+                    <span class="pdt-sec-tag">PAPER COLOR</span>
+                    <span class="pdt-sec-val" id="text-current-paper-color">Default</span>
+                  </div>
+                  <div class="pdt-color-picker-row">
+                    <div class="pdt-palette-swatches" id="pdt-paper-swatches">
+                      <button type="button" class="pdt-color-swatch active" data-color="default" title="Default"
+                        style="background:#f6f6f9;"></button>
+                      <button type="button" class="pdt-color-swatch" data-color="#ffffff" title="Pure White"
+                        style="background:#ffffff;"></button>
+                      <button type="button" class="pdt-color-swatch" data-color="#f5ecd7" title="Warm Cream"
+                        style="background:#f5ecd7;"></button>
+                      <button type="button" class="pdt-color-swatch" data-color="#e3ebd8" title="Muted Sage"
+                        style="background:#e3ebd8;"></button>
+                      <button type="button" class="pdt-color-swatch" data-color="#d8e4eb" title="Powder Blue"
+                        style="background:#d8e4eb;"></button>
+                      <button type="button" class="pdt-color-swatch" data-color="#ebd8e8" title="Pastel Lilac"
+                        style="background:#ebd8e8;"></button>
+                      <button type="button" class="pdt-color-swatch" data-color="#fce2e2" title="Blush Rose"
+                        style="background:#fce2e2;"></button>
+                      <button type="button" class="pdt-color-swatch" data-color="#e8dcc4" title="Oatmeal Craft"
+                        style="background:#e8dcc4;"></button>
+                      <button type="button" class="pdt-color-swatch" data-color="#1e1e24" title="Dark Charcoal"
+                        style="background:#1e1e24;"></button>
+                    </div>
+                    <label class="pdt-custom-color-btn" title="Pilih warna bebas (custom color)">
+                      <input type="color" id="pdt-input-custom-color" value="#f6f6f9" class="pdt-native-color-picker">
+                      <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor"
+                        stroke-width="2">
+                        <circle cx="12" cy="12" r="10" />
+                        <path d="M12 2a10 10 0 0 1 0 20" />
+                      </svg>
+                      <span>custom</span>
+                    </label>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Tab Content 2: ADJUST (Pixels, Cross Stitch, Mood, Lighting) -->
+              <div class="photo-tab-panel" id="tab-panel-adjust">
+                <div class="pdt-row">
+                  <span class="pdt-label">Art Style</span>
+                  <div class="pdt-chips-group" id="pdt-effect-chips">
+                    <button type="button" class="pdt-chip active" data-effect="pixel">
+                      <svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor"
+                        stroke-width="2">
+                        <rect x="3" y="3" width="7" height="7" />
+                        <rect x="14" y="3" width="7" height="7" />
+                        <rect x="3" y="14" width="7" height="7" />
+                        <rect x="14" y="14" width="7" height="7" />
+                      </svg>
+                      <span>pixel art</span>
+                    </button>
+                    <button type="button" class="pdt-chip" data-effect="cross-stitch">
+                      <svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor"
+                        stroke-width="2.5" stroke-linecap="round">
+                        <line x1="4" y1="4" x2="20" y2="20" />
+                        <line x1="20" y1="4" x2="4" y2="20" />
+                      </svg>
+                      <span>cross stitch</span>
+                    </button>
+                  </div>
+                </div>
+                <div class="pdt-row" id="pdt-row-pixel">
+                  <span class="pdt-label">Pixel Effect</span>
+                  <input type="range" id="pdt-range-pixel" min="0" max="36" value="0" class="pdt-slider">
+                  <span class="pdt-val" id="val-range-pixel">Off (foto asli)</span>
+                </div>
+                <div class="pdt-row" id="pdt-row-stitch" style="display: none;">
+                  <span class="pdt-label">Stitch Size</span>
+                  <input type="range" id="pdt-range-stitch" min="6" max="26" value="10" step="2" class="pdt-slider">
+                  <span class="pdt-val" id="val-range-stitch">10px</span>
+                </div>
+                <div class="pdt-row toggle-row" id="pdt-row-aida" style="display: none;">
+                  <span class="pdt-label">Aida Cloth Grid</span>
+                  <label class="pdt-toggle" title="Tekstur kain kristik dengan lubang jahitan">
+                    <input type="checkbox" id="pdt-toggle-aida" checked>
+                    <span class="toggle-slider"></span>
+                  </label>
+                </div>
+                <div class="pdt-row toggle-row" id="pdt-row-stitch-top" style="display: none;">
+                  <span class="pdt-label">Apply to Top Photo</span>
+                  <label class="pdt-toggle" title="Terapkan efek tusuk silang ke foto atas juga">
+                    <input type="checkbox" id="pdt-toggle-stitch-top">
+                    <span class="toggle-slider"></span>
+                  </label>
+                </div>
+                <div class="pdt-row">
+                  <span class="pdt-label">Dreamy Effect</span>
+                  <input type="range" id="pdt-range-dreamy" min="0" max="100" value="0" class="pdt-slider">
+                  <span class="pdt-val" id="val-range-dreamy">Off</span>
+                </div>
+                <div class="pdt-row">
+                  <span class="pdt-label">Brightness</span>
+                  <input type="range" id="pdt-range-bright" min="-40" max="40" value="0" class="pdt-slider">
+                  <span class="pdt-val" id="val-range-bright">0</span>
+                </div>
+                <div class="pdt-row">
+                  <span class="pdt-label">Contrast</span>
+                  <input type="range" id="pdt-range-contrast" min="-40" max="40" value="15" class="pdt-slider">
+                  <span class="pdt-val" id="val-range-contrast">+15</span>
+                </div>
+                <div class="pdt-row">
+                  <span class="pdt-label">Color Mood</span>
+                  <div class="pdt-chips-group" id="pdt-mood-chips">
+                    <button type="button" class="pdt-chip active" data-mood="original">Original</button>
+                    <button type="button" class="pdt-chip" data-mood="dreamy">Dreamy</button>
+                    <button type="button" class="pdt-chip" data-mood="film90">90s Film</button>
+                    <button type="button" class="pdt-chip" data-mood="warm">Golden Sun</button>
+                    <button type="button" class="pdt-chip" data-mood="punk">Punk B&W</button>
+                    <button type="button" class="pdt-chip" data-mood="electric">Royal Blue</button>
+                  </div>
+                </div>
+                <div class="pdt-row toggle-row">
+                  <span class="pdt-label">Invert Stencil Cutout</span>
+                  <label class="pdt-toggle">
+                    <input type="checkbox" id="pdt-toggle-invert">
+                    <span class="toggle-slider"></span>
+                  </label>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ============================================================
+         CROSS STITCH STUDIO WORKSPACE (Dedicated Standalone Mode)
+         ============================================================ -->
+      <div class="photo-editor-workspace stitch-workspace" id="workspace-stitch" style="display: none;">
+        <!-- 3D Card Stage with Tilt Effect (Identical to Photo Stencil) -->
+        <div class="photo-card-stage-container stitch-stage-container">
+          <div class="photo-card-stage" id="stitch-card-stage">
+            <div class="photo-interactive-card stitch-interactive-card" id="stitch-card"
+              title="Cross stitch preview card">
+              <canvas id="stitch-studio-canvas"></canvas>
+              <!-- Retro Watermark Tag (Identical to Photo Stencil) -->
+              <div class="photo-watermark-tag" id="stitch-watermark-tag">✱new-zine</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 2-Column Controls Row: Left = Format & Background, Right = Motif & Adjust -->
+        <div class="photo-editor-controls-row">
+          <!-- Left Column: Format & Background Options -->
+          <div class="photo-controls-left">
+            <!-- Cross Stitch Format Switcher -->
+            <div class="pcl-section">
+              <span class="pcl-title">format (aspect ratio)</span>
+              <div class="photo-ratio-switcher stitch-ratio-switcher" id="stitch-ratio-switcher" role="group"
+                aria-label="cross stitch ratio">
+                <button type="button" class="srs-btn active" data-ratio="4:5" title="Portrait (4:5)">4:5</button>
+                <button type="button" class="srs-btn" data-ratio="1:1" title="Square (1:1)">1:1</button>
+                <button type="button" class="srs-btn" data-ratio="9:16" title="Story (9:16)">9:16</button>
+                <button type="button" class="srs-btn" data-ratio="16:9" title="Wide (16:9)">16:9</button>
+                <button type="button" class="srs-btn" data-ratio="4:3" title="Classic (4:3)">4:3</button>
+              </div>
+            </div>
+
+            <!-- Stage Background Options -->
+            <div class="pcl-section">
+              <span class="pcl-title">canvas background</span>
+              <div class="photo-view-switcher stitch-bg-switcher">
+                <button type="button" class="pvs-btn stitch-bg-btn active" data-bg="transparent">transparent</button>
+                <button type="button" class="pvs-btn stitch-bg-btn" data-bg="aida">aida cloth</button>
+                <button type="button" class="pvs-btn stitch-bg-btn" data-bg="photo">on photo</button>
+                <button type="button" class="pvs-btn stitch-bg-btn" data-bg="dark">dark</button>
+                <button type="button" class="pvs-btn stitch-bg-btn" data-bg="white">white</button>
+              </div>
+            </div>
+
+            <!-- Hidden Upload for Background Photo -->
+            <input type="file" id="stitch-photo-upload-input" accept="image/*" class="hidden">
+          </div>
+
+          <!-- Right Column: Cross Stitch Drawer -->
+          <div class="photo-controls-right">
+            <!-- Cross Stitch Drawer -->
+            <div class="photo-editor-drawer stitch-drawer">
+              <!-- Tab Nav -->
+              <div class="photo-drawer-tabs">
+                <button class="pdt-tab active" data-stitch-tab="motif">
+                  <svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2"
+                    stroke-linecap="round">
+                    <path d="M12 2L12 22M2 12L22 12" />
+                    <path d="M5.6 5.6L18.4 18.4M18.4 5.6L5.6 18.4" />
+                  </svg>
+                  <span>motif</span>
+                </button>
+                <button class="pdt-tab" data-stitch-tab="adjust">
+                  <svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2"
+                    stroke-linecap="round">
+                    <line x1="4" y1="6" x2="20" y2="6" />
+                    <line x1="4" y1="12" x2="20" y2="12" />
+                    <line x1="4" y1="18" x2="20" y2="18" />
+                    <circle cx="8" cy="6" r="2" fill="currentColor" stroke="none" />
+                    <circle cx="16" cy="12" r="2" fill="currentColor" stroke="none" />
+                    <circle cx="10" cy="18" r="2" fill="currentColor" stroke="none" />
+                  </svg>
+                  <span>adjust</span>
+                </button>
+              </div>
+
+              <!-- Tab Panel 1: MOTIF -->
+              <div class="photo-tab-panel active" id="stitch-tab-panel-motif">
+                <!-- Section: MOTIF -->
+                <div class="pdt-section">
+                  <div class="pdt-sec-title">
+                    <span class="pdt-sec-tag">MOTIF</span>
+                    <span class="pdt-sec-val" id="text-current-stitch-motif">Pita Kristik (Bow)</span>
+                  </div>
+                  <div class="pdt-frame-grid" id="stitch-motif-grid">
+                    <!-- Populated by cross-stitch.js -->
+                  </div>
+                </div>
+
+                <!-- Custom Text Row (if text motif selected) -->
+                <div class="pdt-row" id="row-stitch-text-input" style="display: none; padding: 0 4px 10px;">
+                  <span class="pdt-label">Teks Jahitan</span>
+                  <input type="text" id="stitch-input-text" value="Indie Zine" class="pdt-input-text" maxlength="30"
+                    placeholder="Tulis kata kaligrafi..." style="font-family:'Pinyon Script', cursive; font-size:18px;">
+                </div>
+
+                <!-- Section: THREAD COLOR -->
+                <div class="pdt-section">
+                  <div class="pdt-sec-title">
+                    <span class="pdt-sec-tag">THREAD COLOR</span>
+                    <span class="pdt-sec-val" id="text-current-stitch-color">#ff6b9d</span>
+                  </div>
+                  <div class="pdt-color-picker-row">
+                    <div class="pdt-palette-swatches" id="stitch-color-swatches">
+                      <!-- Swatches populated by JS -->
+                    </div>
+                    <label class="pdt-custom-color-btn" title="Pilih warna kustom bebas">
+                      <input type="color" id="stitch-input-custom-color" value="#ff6b9d"
+                        class="pdt-native-color-picker">
+                      <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor"
+                        stroke-width="2">
+                        <circle cx="12" cy="12" r="10" />
+                        <path d="M12 2a10 10 0 0 1 0 20" />
+                      </svg>
+                      <span>custom</span>
+                    </label>
+                  </div>
+                </div>
+
+                <!-- Secondary Color (for two-tone motifs) -->
+                <div class="pdt-row" id="row-secondary-color" style="display: none;">
+                  <span class="pdt-label">Warna Kedua</span>
+                  <label class="pdt-custom-color-btn" style="flex:1" title="Warna kedua untuk motif 2-warna">
+                    <input type="color" id="stitch-input-secondary-color" value="#18181c"
+                      class="pdt-native-color-picker">
+                    <span>pilih warna aksen</span>
+                  </label>
+                </div>
+              </div>
+
+              <!-- Tab Panel 2: ADJUST -->
+              <div class="photo-tab-panel" id="stitch-tab-panel-adjust">
+                <div class="pdt-section">
+                  <div class="pdt-row">
+                    <span class="pdt-label">Skala Ukuran</span>
+                    <input type="range" id="stitch-slider-scale" min="50" max="180" value="100" class="pdt-slider">
+                    <span class="pdt-val" id="val-stitch-scale">100%</span>
+                  </div>
+                  <div class="pdt-row">
+                    <span class="pdt-label">Tebal Benang</span>
+                    <input type="range" id="stitch-slider-thickness" min="70" max="150" value="100" class="pdt-slider">
+                    <span class="pdt-val" id="val-stitch-thickness">100%</span>
+                  </div>
+                  <div class="pdt-row">
+                    <span class="pdt-label">Rotasi Motif</span>
+                    <input type="range" id="stitch-slider-rotation" min="-180" max="180" value="0" class="pdt-slider">
+                    <span class="pdt-val" id="val-stitch-rotation">0°</span>
+                  </div>
+                  <div class="pdt-row">
+                    <span class="pdt-label">Posisi Vertikal</span>
+                    <input type="range" id="stitch-slider-pos-y" min="-150" max="150" value="0" class="pdt-slider">
+                    <span class="pdt-val" id="val-stitch-pos-y">0</span>
+                  </div>
+                  <div class="pdt-row">
+                    <span class="pdt-label">Posisi Horizontal</span>
+                    <input type="range" id="stitch-slider-pos-x" min="-150" max="150" value="0" class="pdt-slider">
+                    <span class="pdt-val" id="val-stitch-pos-x">0</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Action Buttons -->
+              <div class="pdt-section" style="margin-top:12px;">
+                <div style="display:flex; gap:8px;">
+                  <button type="button" class="photo-top-btn" id="btn-stitch-export"
+                    style="flex:1; justify-content:center" title="Download transparent PNG">
+                    <svg class="icon" viewBox="0 0 24 24" width="15" height="15">
+                      <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3" fill="none"
+                        stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" />
+                    </svg>
+                    <span>save png</span>
+                  </button>
+                  <button type="button" class="photo-top-btn primary" id="btn-stitch-add-zine"
+                    style="flex:1; justify-content:center" title="Tambahkan langsung ke kanvas zine">
+                    <svg class="icon" viewBox="0 0 24 24" width="15" height="15">
+                      <path d="M12 5v14M5 12h14" fill="none" stroke="currentColor" stroke-width="2"
+                        stroke-linecap="round" stroke-linejoin="round" />
+                    </svg>
+                    <span>add to zine</span>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+       SCREEN 4 — EDITOR
+       ============================================================ -->
+    <section class="screen screen-editor" id="screen-editor">
+
+      <!-- top bar -->
+      <header class="editor-top">
+        <button class="round round-out" id="btn-back-editor" aria-label="back">
+          <svg class="icon" viewBox="0 0 24 24">
+            <path d="M15 5 L8 12 L15 19" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+              stroke-linejoin="round" />
+          </svg>
+        </button>
+        <div class="editor-title">
+          <span id="project-title">zine</span>
+          <span id="page-count-label"></span>
+        </div>
+        <div class="top-actions">
+          <div class="top-mode-pill" role="group" aria-label="design mode">
+            <button type="button" class="mode-tab active" id="tab-mode-framed" title="Frames (1 page 1 desain)"
+              aria-label="frames mode">
+              <svg class="icon" viewBox="0 0 24 24">
+                <rect x="3" y="3" width="7" height="8" rx="1" fill="none" stroke="currentColor" stroke-width="1.8" />
+                <rect x="14" y="3" width="7" height="8" rx="1" fill="none" stroke="currentColor" stroke-width="1.8" />
+                <rect x="3" y="13" width="7" height="8" rx="1" fill="none" stroke="currentColor" stroke-width="1.8" />
+                <rect x="14" y="13" width="7" height="8" rx="1" fill="none" stroke="currentColor" stroke-width="1.8" />
+              </svg>
+              <span>1 page 1 desain</span>
+            </button>
+            <button type="button" class="mode-tab" id="tab-mode-free" title="Free (seamless canvas)"
+              aria-label="free design mode">
+              <svg class="icon" viewBox="0 0 24 24">
+                <rect x="3" y="3" width="18" height="18" rx="2" fill="none" stroke="currentColor" stroke-width="1.8" />
+                <path d="M3 12 H21 M12 3 V21" stroke="currentColor" stroke-width="1.2" stroke-dasharray="2 2" />
+              </svg>
+              <span>free design</span>
+            </button>
+          </div>
+          <button type="button" class="flipbook-top-btn" id="btn-flipbook" title="preview as 3D flipbook">
+            <svg class="icon" viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor"
+              stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path>
+              <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path>
+            </svg>
+            <span>3D book preview</span>
+          </button>
+          <div class="top-bar-sep" aria-hidden="true"></div>
+          <button class="round round-out" id="btn-undo" aria-label="undo" title="undo">
+            <svg class="icon" viewBox="0 0 24 24">
+              <path d="M9 14 L4 9 L9 4 M4 9 H13 a5 5 0 0 1 5 5 v2" fill="none" stroke="currentColor" stroke-width="1.8"
+                stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+          </button>
+          <button class="round round-out" id="btn-redo" aria-label="redo" title="redo">
+            <svg class="icon" viewBox="0 0 24 24">
+              <path d="M15 14 L20 9 L15 4 M20 9 H11 a5 5 0 0 0 -5 5 v2" fill="none" stroke="currentColor"
+                stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+          </button>
+          <button class="round round-out" id="btn-save-json" aria-label="save project as json"
+            title="save project as json">
+            <svg class="icon" viewBox="0 0 24 24">
+              <path
+                d="M6 3 H15 L17 5 V19 a2 2 0 0 1 -2 2 H6 a2 2 0 0 1 -2 -2 V5 a2 2 0 0 1 2 -2 Z M8 3 V8 H14 V3 M10 13 H14 M10 17 H14"
+                fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+          </button>
+          <button class="round round-out" id="btn-editor-projects" aria-label="project history" title="project history">
+            <svg class="icon" viewBox="0 0 24 24">
+              <path d="M3 7 a2 2 0 0 1 2 -2 H8 L10 3 H17 a2 2 0 0 1 2 2 V17 a2 2 0 0 1 -2 2 H5 a2 2 0 0 1 -2 -2 Z"
+                fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round" />
+            </svg>
+          </button>
+          <input type="file" id="file-load" accept="application/json,.json" class="hidden">
+        </div>
+      </header>
+
+      <!-- canvas stage (page wrappers are inserted here by JS) -->
+      <div class="stage-scroll" id="stage-scroll">
+        <div class="stage" id="stage"></div>
+        <div class="drop-overlay" id="drop-overlay" aria-hidden="true">
+          <span>drop image to add</span>
+        </div>
+      </div>
+
+      <!-- zine page thumbnails -->
+      <div class="thumb-row" id="thumbRow" aria-label="pages"></div>
+
+      <!-- property controls row (under the canvas) -->
+      <div class="props-drawer" id="propsDrawer" aria-label="properties"></div>
+
+      <!-- toolbar (built by JS) -->
+      <div class="toolbar" id="toolbar" role="toolbar" aria-label="tools"></div>
+
+      <!-- photo uploads -->
+      <input type="file" id="file-photo" accept="image/*" multiple class="hidden">
+      <input type="file" id="file-background" accept="image/*" class="hidden">
+      <input type="file" id="file-replace" accept="image/*" class="hidden">
+    </section>
+
+
+  </div>
+
+  <!-- ============================================================
+     PRINT PREVIEW OVERLAY (imposed zine sheet)
+     ============================================================ -->
+  <div class="overlay hidden" id="printOverlay" role="dialog" aria-modal="true" aria-label="print preview">
+    <div class="modal-box">
+      <div class="modal-head">
+        <h2 class="display small">print preview</h2>
+        <div class="modal-actions">
+          <button class="pill small" id="print-guides" aria-pressed="true">guides</button>
+          <button class="pill small" id="print-mirror" aria-pressed="false">mirror</button>
+          <button class="pill small" id="print-export-pdf">export pdf</button>
+          <button class="pill small" id="print-export-png">export png</button>
+          <button class="pill small" id="print-close">close</button>
+        </div>
+      </div>
+      <div class="print-canvas-wrap" id="printCanvasWrap">
+        <canvas id="printCanvas" width="1748" height="1240"></canvas>
+      </div>
+      <p class="footnote center">top row is printed upside down — flip the sheet over long edge to print the back</p>
+    </div>
+  </div>
+
+  <!-- ============================================================
+     HOW TO FOLD MODAL
+     ============================================================ -->
+  <div class="overlay hidden" id="howtoOverlay" role="dialog" aria-modal="true" aria-label="how to fold">
+    <div class="modal-box">
+      <div class="modal-head">
+        <h2 class="display small">how to fold your mini zine</h2>
+        <button class="round round-out" id="howto-close" aria-label="close">
+          <svg class="icon" viewBox="0 0 24 24">
+            <path d="M6 6 L18 18 M18 6 L6 18" fill="none" stroke="currentColor" stroke-width="2"
+              stroke-linecap="round" />
+          </svg>
+        </button>
+      </div>
+      <ol class="fold-steps">
+        <li><span class="step-num">1</span> lay the sheet flat, printed side up. fold it in half horizontally (top edge
+          to bottom edge) along the dashed fold line.</li>
+        <li><span class="step-num">2</span> fold in half again along the vertical spine in the middle, so the right side
+          folds over the left.</li>
+        <li><span class="step-num">3</span> fold in half a third time — this time accordion it, so the left side opens
+          out to the left.</li>
+        <li><span class="step-num">4</span> cut along the solid cut line across the middle two columns at the horizontal
+          centre.</li>
+        <li><span class="step-num">5</span> unfold completely, then refold into a little booklet: front cover (page 1)
+          up, page 8 on the back.</li>
+      </ol>
+    </div>
+  </div>
+
+  <!-- ============================================================
+     ZINE CAROUSEL FULLSCREEN PREVIEW MODAL
+     (Direct child of <body> to ensure viewport-fixed positioning)
+     ============================================================ -->
+  <div class="zss-modal-overlay" id="zss-preview-modal" aria-hidden="true">
+    <div class="zss-modal-backdrop" id="zss-modal-backdrop"></div>
+    <!-- Close button pinned to the absolute top-right of the whole screen -->
+    <button type="button" class="zss-simple-close" id="zss-modal-close" aria-label="close preview" title="close (Esc)">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"
+        stroke-linecap="round" stroke-linejoin="round">
+        <line x1="18" y1="6" x2="6" y2="18"></line>
+        <line x1="6" y1="6" x2="18" y2="18"></line>
+      </svg>
+    </button>
+    <div class="zss-simple-dialog" role="dialog" aria-modal="true">
+      <div class="zss-simple-content">
+        <img src="" alt="zine design preview" class="zss-simple-img" id="zss-modal-img">
+        <p class="zss-simple-caption" id="zss-modal-caption">design by community artist</p>
+      </div>
+      <!-- Simple Nav Arrows -->
+      <button type="button" class="zss-simple-nav zss-simple-prev" id="zss-modal-prev" aria-label="previous design"
+        title="previous (←)">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+          stroke-linecap="round" stroke-linejoin="round">
+          <polyline points="15 18 9 12 15 6"></polyline>
+        </svg>
+      </button>
+      <button type="button" class="zss-simple-nav zss-simple-next" id="zss-modal-next" aria-label="next design"
+        title="next (→)">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+          stroke-linecap="round" stroke-linejoin="round">
+          <polyline points="9 18 15 12 9 6"></polyline>
+        </svg>
+      </button>
+    </div>
+  </div>
+
+  <!-- toast -->
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/fabric.js/5.3.0/fabric.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/pdf-lib@1.17.1/dist/pdf-lib.min.js"></script>
+  <script src="js/landing/home.js"></script>
+  <script src="js/landing/zine-ring.js"></script>
+  <script src="js/editor/effects.js"></script>
+  <script src="js/editor/adjustments.js"></script>
+  <script src="js/core/app.js"></script>
+  <script src="js/editor/text-panel.js"></script>
+  <script src="js/editor/ruler.js"></script>
+  <script src="js/editor/color-picker.js"></script>
+  <script src="js/editor/texture-data.js"></script>
+  <script src="js/editor/texture.js"></script>
+  <script src="js/core/export.js"></script>
+  <script src="js/core/projects.js"></script>
+  <script src="js/core/layers.js"></script>
+  <script src="js/tools/photo-editor.js"></script>
+  <script src="js/tools/stitch-assets.js"></script>
+  <script src="js/tools/cross-stitch.js"></script>
+  <script src="js/landing/flipbook.js"></script>
+  <script src="js/core/templates.js"></script>
+  <script src="js/editor/snapping.js"></script>
+</body>
+
+</html>
