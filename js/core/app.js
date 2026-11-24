@@ -779,17 +779,19 @@ function fitZoom() {
   const sc = $('#stage-scroll');
   if (!sc) return 1;
   const r = sc.getBoundingClientRect();
+  const isMobile = window.innerWidth <= 768;
 
   const lp = document.querySelector('#layers-panel');
   const isLpOpen = lp && lp.offsetParent !== null && !lp.classList.contains('hidden') && lp.offsetWidth > 0;
-  const leftReserved = isLpOpen ? (lp.offsetWidth + 24) : 30;
+  const leftReserved = isMobile ? 12 : (isLpOpen ? (lp.offsetWidth + 24) : 30);
 
   const pd = document.querySelector('#propsDrawer');
   const isPdOpen = pd && pd.classList.contains('open') && pd.offsetWidth > 0;
-  const rightReserved = isPdOpen ? (pd.offsetWidth + 80) : 75; // 75px for vertical dock toolbar & margin
+  // On mobile the props drawer is a bottom sheet, so horizontal right reserve is minimal
+  const rightReserved = isMobile ? 12 : (isPdOpen ? (pd.offsetWidth + 80) : 75); // 75px for vertical dock toolbar & margin
 
-  const availW = Math.max(320, r.width - leftReserved - rightReserved);
-  const availH = Math.max(220, r.height - 70);
+  const availW = Math.max(isMobile ? 260 : 320, r.width - leftReserved - rightReserved);
+  const availH = Math.max(isMobile ? 180 : 220, r.height - (isMobile ? 110 : 70));
   return Math.max(0.15, Math.min(availW / SHEET.W, availH / SHEET.H, 1));
 }
 
@@ -805,13 +807,15 @@ function centerStageInView() {
 
   requestAnimationFrame(() => {
     requestAnimationFrame(() => {
+      const isMobile = window.innerWidth <= 768;
       const lp = document.querySelector('#layers-panel');
       const isLpOpen = lp && lp.offsetParent !== null && !lp.classList.contains('hidden') && lp.offsetWidth > 0;
-      const leftW = isLpOpen ? lp.offsetWidth : 0;
+      const leftW = isMobile ? 0 : (isLpOpen ? lp.offsetWidth : 0);
 
       const pd = document.querySelector('#propsDrawer');
       const isPdOpen = pd && pd.classList.contains('open') && pd.offsetWidth > 0;
-      const rightW = isPdOpen ? (pd.offsetWidth + 60) : 60; // 60px for vertical dock toolbar
+      // On mobile toolbar & drawer are docked bottom, so horizontal right reserve is 0
+      const rightW = isMobile ? 0 : (isPdOpen ? (pd.offsetWidth + 60) : 60); // 60px for vertical dock toolbar
 
       const visibleW = sc.clientWidth - leftW - rightW;
       const targetCenterX = leftW + visibleW / 2;
