@@ -1266,7 +1266,8 @@ function buildPages(n) {
       stopContextMenu: true,
       selectionColor: 'rgba(47,10,233,0.1)',
       selectionBorderColor: '#000000',
-      selectionLineWidth: 1.5
+      selectionLineWidth: 1.5,
+      selectionKey: ['shiftKey', 'ctrlKey', 'metaKey']
     });
 
     const page = {
@@ -1302,7 +1303,8 @@ function buildPages(n) {
         stopContextMenu: true,
         selectionColor: 'rgba(47,10,233,0.1)',
         selectionBorderColor: '#000000',
-        selectionLineWidth: 1.5
+        selectionLineWidth: 1.5,
+        selectionKey: ['shiftKey', 'ctrlKey', 'metaKey']
       });
 
       const page = {
